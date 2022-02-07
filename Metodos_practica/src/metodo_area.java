@@ -11,7 +11,7 @@ Triangulo: (base * altura) / 2
 Cuadrado: lado * lado*/
 
 public class metodo_area {
-public static void a_circulo() {
+public static void area_circulo() {
     
 }
     public static void main(String[] args) {
