@@ -6,10 +6,20 @@ public class par_imp {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int matriz[][] = new int[2][2];
-        for(int i=0; i<4;i++){
-            for(int j=0;j<4;j++){
+        for(int i=0; i<2;i++){
+            for(int j=0;j<2;j++){
                 System.out.println("Introduce un numero en la posición: "+i+"/"+j);
-                int num = sc.nextInt();
+                matriz[i][j] = sc.nextInt();
+            }
+        }
+
+        for(int i=0; i<2;i++){
+            for(int j=0;j<2;j++){
+                if(matriz[i][j]%2==0){
+                    System.out.println("Los numero pares son: "+matriz[i][j]+" en la posicion "+i+"/"+j);
+                }else{
+                    System.out.println("Los numeros impares son: "+matriz[i][j]+" en la posicion "+i+" "+j);
+                }
             }
         }
     }
