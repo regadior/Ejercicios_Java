@@ -7,20 +7,17 @@ public class numero_ran {
         Scanner sc = new Scanner(System.in);
         int contador=0;
         String seguir="S";
-        while(seguir.equals("S")){
-            seguir="N";
+        do{
+            int sup =0;
+            int num = 0;
             System.out.println("Introduce el limite inferior");
             int inf = sc.nextInt();
-            System.out.println("Introduce el limite superior");
-                int sup = sc.nextInt();
-            if(inf>=sup){
-                sup=0;
+            do{
                 System.out.println("Introduce el limite superior");
                 sup = sc.nextInt();
-            }
+            }while(inf>sup);
             int rand = (int) (Math.random()*(inf+sup));
-            System.out.print("Teclea un numero para intentar encontrarlo: ");
-            int num = sc.nextInt();
+            System.out.println(rand);
             do{
                 System.out.print("Teclea un numero para intentar encontrarlo: ");
                 num = sc.nextInt();
@@ -29,9 +26,9 @@ public class numero_ran {
                 System.out.println("Has encontrado el numero: "+rand);
                 contador++;
                 System.out.println("Llevas "+contador+" aciertos");
-            }
+            } 
             System.out.println("Quieres continuar S / N");
-            seguir = sc.nextLine(); 
-        }
+            seguir=sc.next();
+        }while(seguir.equals("S"));
     }
 }
