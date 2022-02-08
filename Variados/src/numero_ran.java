@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class numero_ran {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int contadoÊr=0;
+        int contador=0;
         String seguir="S";
         do{
             int sup =0;
