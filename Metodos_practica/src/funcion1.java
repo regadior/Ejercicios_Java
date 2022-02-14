@@ -27,7 +27,6 @@ public class funcion1 {
          String nombre = sc.nextLine();
          System.out.print("Intorduce tu contraseña numerica: ");
          String contraseña = sc.nextLine();
-
-        verificar(nombre,contraseña);
+            verificar(nombre,contraseña);
     }
 }
