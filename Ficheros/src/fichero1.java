@@ -1,21 +1,27 @@
-/*Crea un fichero de texto con el nombre y contenido que tu quieras. 
-Ahora crea una aplicación que lea este fichero de texto carácter a carácter y muestre su contenido por pantalla  sin espacios. 
-Por ejemplo, si un fichero tiene el siguiente texto “Esto es una prueba”, deberá mostrar “Estoesunaprueba”.*/
-import java.io.FileReader;
-import java.io.IOException;
-public class fichero1 {
+import java.io.*; 
+//Importamos todas las clases de java.io.<br />public class FicheroTextoApp {
+public class fichero1{
     public static void main(String[] args) {
-        final String fichero="C:\\Visual studio\\Java-practica\\Ficheros\\bin\\fichero.txt";
-        try(FileReader fr = new FileReader(fichero)) {
+        try{
+            //Abro stream, crea el fichero si no existe
+            FileWriter fw=new FileWriter("D:\\Java-practica\\Ficheros\\src\\fichero1.txt");
+            //Escribimos en el fichero un String y un caracter 97 (a)
+            fw.write("Esto es una prueb");
+            fw.write(97);
+            //Cierro el stream
+            fw.close(); 
+                //Abro el stream, el fichero debe existir
+            FileReader fr=new FileReader("D:\\Java-practica\\Ficheros\\src\\fichero1.txt");
+            //Leemos el fichero y lo mostramos por pantalla
             int valor=fr.read();
             while(valor!=-1){
-                if(valor!=32){ //32 es el spacio del codigo 
-                    System.out.print((char)valor);
-                }
+                System.out.print((char)valor);
                 valor=fr.read();
             }
-        } catch (Exception e) {
-            System.out.println("Problemas con el E/S "+e);
+            //Cerramos el stream
+            fr.close();
+        }catch(IOException e){
+            System.out.println("Error E/S: "+e);
         }
     }
 }
