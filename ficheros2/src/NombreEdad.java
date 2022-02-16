@@ -12,7 +12,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class NombreEdad {
+public class NombreEdad{
 	//aqu� se puede poner static final string ruta = se pone para poner una ruta y si en otro momento tengo que cambiarla s�lo la tengo q cambiar aqu� arriba, no en todo
 	
 	static int crearMenu(Scanner sc) {
@@ -37,7 +37,7 @@ public class NombreEdad {
 		String nombre="";
 		String edad="";
 		try {
-			FileWriter escritorAltas=new FileWriter("C:\\Users\\Alumno\\Desktop\\S\\Programaci�n\\Fichero1.txt");
+			FileWriter escritorAltas=new FileWriter("D:\\Java-practica\\ficheros2\\src\\Fichero1.txt");
 			BufferedWriter escritorNombre=new BufferedWriter(escritorAltas);
 			System.out.print("Teclee nombre(fin para acabar): ");
 			nombre=sc.nextLine();
@@ -61,7 +61,7 @@ public class NombreEdad {
 		String edad="";
 		try {
 			System.out.println("\nVISUALIZAR LISTADO\n");
-			FileReader lectorListado=new FileReader("C:\\Users\\Alumno\\Desktop\\S\\Programaci�n\\Fichero1.txt");
+			FileReader lectorListado=new FileReader("D:\\Java-practica\\ficheros2\\src\\Fichero1.txt");
 			BufferedReader lectorLineas=new BufferedReader (lectorListado);
 			nombre=lectorLineas.readLine();
 			edad=lectorLineas.readLine();
@@ -109,15 +109,7 @@ public class NombreEdad {
 			visualizarListado();
 			break;
 		case 3:
-			//poner aqu� la media de edad,crear arriba el m�todo
-		case 5:
-			opcion = menu(entrada,1);
-			switch ((char)opcion) {
-			case 'n':
-				OrdenarFichero(0)
-				break;
-			}
-			
+
 		default:
 			fin();
 		}
