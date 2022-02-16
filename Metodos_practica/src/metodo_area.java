@@ -15,7 +15,6 @@ public class metodo_area {
         System.out.println(Math.pow(radio, 2)*Math.PI);
         return radio;
     }
-
     public static double areaTriangulo(double base, double altura) {
         System.out.println((base*altura)/2);
         return base;
