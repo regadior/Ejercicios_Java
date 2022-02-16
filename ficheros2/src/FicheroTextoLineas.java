@@ -10,7 +10,7 @@ public class FicheroTextoLineas{
 		Scanner e= new Scanner(System.in);
 		String nombre=null;
 		try {
-			FileWriter f = new FileWriter("C:\\Users\\DA-1.PUESTO222\\Desktop\\ejercicios programaci�n\\textos\\textocadena.txt"); 
+			FileWriter f = new FileWriter("D:\\Java-practica\\ficheros2\\src\\Fichero1.txt"); 
 			BufferedWriter esc= new BufferedWriter(f);
 			//BufferedWriter esc= new BufferedWriter("C:\\Users\\DA-1.PUESTO222\\Desktop\\ejercicios programaci�n\\textos\\textocadena.txt");
 			System.out.print("Teclea nombre(fin pra acabar)");
@@ -25,7 +25,7 @@ public class FicheroTextoLineas{
 		}catch(IOException ioe) {}
 		try {
 			System.out.println("\n\t Fin de entradas.");
-			FileReader f = new FileReader("C:\\Users\\DA-1.PUESTO222\\Desktop\\ejercicios programaci�n\\textos\\textocadena.txt"); 
+			FileReader f = new FileReader("D:\\Java-practica\\ficheros2\\src\\Fichero1.txt"); 
 			BufferedReader lec= new BufferedReader(f);
 			//BufferedReader lec= new BufferedReader("C:\\Users\\DA-1.PUESTO222\\Desktop\\ejercicios programaci�n\\textos\\textocadena.txt");
 			nombre=lec.readLine();
