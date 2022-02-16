@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class numerosprimos {
     public static void main(String[] args) {
         for (int i=1;i<=100;i++){
-            int raiz=(int)Math.sqrt(i);
+            int raiz=(int)Math.sqrt(i); 
             int contador=0;
             for (int j=raiz;j>1;j--){
                 if (i%j==0){
