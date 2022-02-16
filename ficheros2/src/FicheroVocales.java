@@ -30,7 +30,7 @@ public class FicheroVocales {
 		int car=' ';
 		System.out.println("\n\tCREAR FICHERO\n\t======");
 		try {
-			FileWriter esc=new FileWriter("E:\\CLASES\\PRG\\textoFicheros.txt");
+			FileWriter esc=new FileWriter("D:\\Java-practica\\ficheros2\\src\\Fichero1.txt");
 			System.out.print("Teclear texto a grabar: ");
 			while (car!='*') {
 				esc.write(car);
@@ -49,7 +49,7 @@ public class FicheroVocales {
 		String texto="";
 		int car=0;
 		try {
-			FileReader in=new FileReader("E:\\CLASES\\PRG\\textoFicheros.txt");
+			FileReader in=new FileReader("D:\\Java-practica\\ficheros2\\src\\Fichero1.txt");
 			car=in.read();
 			while(car!=-1) {
 				texto+=(char)car;
@@ -66,7 +66,7 @@ public class FicheroVocales {
 		int car=0, nv=0;
 		System.out.println("\n\tCONTAR VOCALES\n\t======");
 		try {
-			FileReader in=new FileReader("E:\\CLASES\\PRG\\textoFicheros.txt");
+			FileReader in=new FileReader("D:\\Java-practica\\ficheros2\\src\\Fichero1.txt");
 			car=in.read();
 			while(car!=-1) {
 				switch(Character.toLowerCase((char)car)) {
