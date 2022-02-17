@@ -27,7 +27,7 @@ public class FicheroConsonantes {
 		System.out.println("\n\tCREAR FICHERO FRASE\n");
 		int car=' ';
 		try {
-			FileWriter esc=new FileWriter("D:\\Java-practica\\ficheros2\\src\\Fichero1.txt"); //TODO aprender esto
+			FileWriter esc=new FileWriter("D:\\Java-practica\\ficheros2\\src\\frase.txt"); //TODO aprender esto
 			System.out.print("Teclear texto a grabar: ");
 			while (car!='*') {
 				esc.write(car);
@@ -44,20 +44,20 @@ public class FicheroConsonantes {
 		int car=' ';
 		System.out.println("\n\tCREANDO FICHEROS...\n\t");
 		try {
-			FileReader lector=new FileReader("D:\\Java-practica\\ficheros2\\src\\Fichero1.txt");
-			FileWriter escritorVocales= new FileWriter("D:\\Java-practica\\ficheros2\\src\\Fichero1.txt");
-			FileWriter escritorConsonantes=new FileWriter("D:\\Java-practica\\ficheros2\\src\\Fichero1.txt");
+			FileReader lector=new FileReader("D:\\Java-practica\\ficheros2\\src\\frase.txt");
+			FileWriter escritorVocales= new FileWriter("D:\\Java-practica\\ficheros2\\src\\vocales.txt");
+			FileWriter escritorConsonantes=new FileWriter("D:\\Java-practica\\ficheros2\\src\\consonante.txt");
 			car=lector.read();
 			while(car!=-1) {
 				if(Character.isLetter(car)) {
-				switch (Character.toLowerCase((char)car)) {
-				case 'a','e','i','o','u':
-					escritorVocales.write(car);
-					break;
-				default:
-					escritorConsonantes.write(car);
-					break;
-				}
+					switch (Character.toLowerCase((char)car)) {
+					case 'a','e','i','o','u':
+						escritorVocales.write(car);
+						break;
+					default:
+						escritorConsonantes.write(car);
+						break;
+					}
 				}
 				car=lector.read();
 			}
