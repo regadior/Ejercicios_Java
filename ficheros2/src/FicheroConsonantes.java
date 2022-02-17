@@ -82,7 +82,7 @@ public class FicheroConsonantes {
 		case 3:
 			try {
 				System.out.println("\n\tVISUALIZAR FICHERO FRASE\n");
-				FileReader lectorFrase=new FileReader("D:\\Java-practica\\ficheros2\\src\\Fichero1.txt");
+				FileReader lectorFrase=new FileReader("D:\\Java-practica\\ficheros2\\src\\frase.txt");
 				car=lectorFrase.read();
 				while(car!=-1) {
 					texto+=(char)car;
@@ -97,7 +97,7 @@ public class FicheroConsonantes {
 		case 4:
 			System.out.println("\n\tVISUALIZAR FICHERO VOCALES\n");
 			try {
-				FileReader lectorVocales=new FileReader("D:\\Java-practica\\ficheros2\\src\\Fichero1.txt");
+				FileReader lectorVocales=new FileReader("D:\\Java-practica\\ficheros2\\src\\vocales.txt");
 				car=lectorVocales.read();
 				while(car!=-1) {
 					texto+=(char)car;
@@ -112,7 +112,7 @@ public class FicheroConsonantes {
 		case 5:
 			System.out.println("\n\tVISUALIZAR FICHERO CONSONANTES\n");
 			try {
-				FileReader lectorConsonantes=new FileReader("D:\\Java-practica\\ficheros2\\src\\Fichero1.txt");
+				FileReader lectorConsonantes=new FileReader("D:\\Java-practica\\ficheros2\\src\\consonante.txt");
 				car=lectorConsonantes.read();
 				while(car!=-1) {
 					texto+=(char)car;
