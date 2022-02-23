@@ -1,0 +1,8 @@
+<!DOCTYPE pais[
+<!Element paises (pais*)>
+<!Element pais(superficie,moneda+,gobierno)>
+<!Element pais nombre ID #Required>
+<!Element pais fronteras IDREFS #Required>
+<!Element superficie (#PCDATA)>
+<!Element superficie unidad nmtoken>
+]>
