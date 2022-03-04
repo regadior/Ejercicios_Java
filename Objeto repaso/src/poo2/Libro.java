@@ -5,10 +5,10 @@ public class Libro {
     private String autor;
     private int ejemplares;
     private int prestados;
-    public libro(){
+    public Libro(){
 
     }
-    public libro(String titulo, String autor, int ejemplares, int prestados){
+    public Libro(String titulo, String autor, int ejemplares, int prestados){
         this.titulo=titulo;
         this.autor = autor;
         this.ejemplares = ejemplares;
