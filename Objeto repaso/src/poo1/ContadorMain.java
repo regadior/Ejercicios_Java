@@ -1,4 +1,5 @@
 package poo1;
+import java.util.Scanner;
 public class ContadorMain {
     /*Crea una clase llamada Contador que contenga un único 
     atributo entero llamado cont.
@@ -14,10 +15,14 @@ public class ContadorMain {
     nunca podrá tener un valor negativo. Si al decrementar se alcanza un 
     valor negativo el contador toma el valor cero.
     Una vez creada la clase, escribe un método main para probar la clase. */
-public static void main(String[] args) {
-    
-}
-
-
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Contador contador1 = new Contador();
+        int valor=0;
+        System.out.print("Escribe el valor de inicio del contador: ");
+        valor=sc.nextInt();
+        contador1.setCont(valor);
+        System.out.println(contador1.getCont());
+    }  
 }
 
