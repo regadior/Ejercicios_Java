@@ -6,7 +6,7 @@ import java.io.BufferedWriter;
 import java.io.BufferedReader;
 import java.io.IOException;
 public class Hombres_Mujeres {
-	static final  String ruta="C:\\Users\\Alumno.PUESTO229\\Documents\\javaFichero\\";
+	static final String ruta="C:\\Users\\Alumno.PUESTO229\\Documents\\javaFichero\\";
 	static int menu(Scanner entrada) {
 		int opcion=0;
 		System.out.println("1.-Altas Personas");
