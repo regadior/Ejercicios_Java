@@ -4,18 +4,18 @@ public class Rombo {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         boolean numeroCorrecto = false;
-        int numFilasRombos; 
+        int FlasToatales; 
         do {
             System.out.print("Introduce el número de filas (natural e impar): ");
-            numFilasRombos = sc.nextInt();
-            if(numFilasRombos>0 && numFilasRombos%2!=0){
+            FlasToatales = sc.nextInt();
+            if(FlasToatales>0 && FlasToatales%2!=0){
                 numeroCorrecto = true;
             }
         } while (!numeroCorrecto);
          
         System.out.println("");
          
-        int numFilas = numFilasRombos/2 + 1;
+        int numFilas = FlasToatales/2 + 1;
                  
         for(int altura=1;altura<=numFilas;altura++){
             //Blancos
@@ -29,7 +29,7 @@ public class Rombo {
             System.out.println("");         
         }
          //Mitad inferior
-        numFilas--;
+        numFilas--;//Se le resta uno para no duplicar
          
         for(int altura=1;altura<=numFilas;altura++){
             //Blancos
