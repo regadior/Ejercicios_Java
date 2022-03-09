@@ -6,8 +6,8 @@ import java.io.BufferedWriter;
 import java.io.BufferedReader;
 import java.io.IOException;
 public class Hombres_Mujeres {
-	static final String ruta="C:\\Users\\Alumno.PUESTO229\\Documents\\javaFichero\\";
-	static int menu(Scanner entrada) {
+	static final String ruta="C:\\Java-practica\\Hombres_Mujeres\\src\\hombres_Mujeres\\";
+	static int menu(Scanner sc) {
 		int opcion=0;
 		System.out.println("1.-Altas Personas");
 		System.out.println("2.-Ficheros hombres y mujeres");
@@ -19,25 +19,22 @@ public class Hombres_Mujeres {
 		System.out.println("8.-FIN");
 		do{
 			System.out.println("introduzca opcion");
-			opcion=entrada.nextInt();
-			entrada.nextLine();
+			opcion=sc.nextInt();
 		}while(opcion<1|opcion>8);/*mientras cond verdadera se repite bucle*/
 		return opcion;
 	}
-	static void altasPersonas (Scanner entrada) {
+	static void altasPersonas (Scanner sc) {
 		String nombre="";
 		String edad=null; //me da eror como entero nose pq
 		char sexo=' ';
 		boolean correcto=true;
 		System.out.println("ALTAS PERSONAS");
-
-		//error nullPointerexception
 		try {
 			FileWriter esc= new FileWriter(ruta+"Personas.txt",true); //queremos ir a�adiendo sobre las anteriores personas registradas
 			BufferedWriter besc=new BufferedWriter(esc);
 			do {
 				System.out.println("introduzca nombre");
-				nombre=entrada.nextLine();
+				nombre=sc.nextLine();
 			}while(nombre.length()>15);
 
 			while(!nombre.equalsIgnoreCase("fin")){
@@ -45,7 +42,7 @@ public class Hombres_Mujeres {
 				do {
 					correcto = true;
 					System.out.println("Introduzca edad");
-					edad=entrada.next();
+					edad=sc.next();
 					try {
 						Integer.parseInt(edad);
 					}catch(NumberFormatException nfe) {correcto=false;}
@@ -66,10 +63,10 @@ public class Hombres_Mujeres {
 
 				besc.write(sexo);
 				besc.newLine();
-				entrada.nextLine();
+				sc.nextLine();
 				do {
 					System.out.println("introduzca nombre(fin para acabar)");
-					nombre=entrada.nextLine();
+					nombre=sc.nextLine();
 				}while(nombre.length()>15);
 
 			}//fin while m�s externo
@@ -252,16 +249,16 @@ public class Hombres_Mujeres {
 	}
 
 	public static void main(String[]args) {
-		Scanner entrada = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 		int opcion=0;
 		do {
-			opcion=menu(entrada);
+			opcion=menu(sc);
 			switch(opcion) {
 			case 1:
-				altasPersonas(entrada);
+				altasPersonas(sc);
 				break;
 			case 2:
-				hombresMujeres(entrada);
+				hombresMujeres(sc);
 				break;
 			case 3:
 				mayorMenor();
