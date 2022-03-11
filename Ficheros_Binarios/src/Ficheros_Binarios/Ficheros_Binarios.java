@@ -35,14 +35,52 @@ public class Ficheros_Binarios {
             System.out.println("Teclea numeros 999 para finalizar");
             while (numero!=999) {
                 numero=entrada.nextInt();
+                salida.writeInt(numero);
             }
             entrada.close();
-
-
-            
-        } catch () {
+            salida.close();
+            archivo.close();
+        } catch (IOException ioe) {
+            System.out.println("El fichero no se ha podido abrir");
            
         }
+    }
+
+    static void ListasFicheros(){
+        int num=0;
+        try {
+            FileInputStream entradaArchivo = new FileInputStream(ruta+"numeros.dat");
+            ObjectInputStream entrada = new ObjectInputStream(entradaArchivo);
+            while (num!=999) {
+                System.out.println("Los numeros son: ");
+                num=entrada.readInt();
+            }
+            entrada.close();
+        } catch(IOException ioe){
+            System.out.println("El fichero no se ha podido abrir");
+        }
+    }
+    static boolean BuscarNumero(){
+        boolean encontrado = false;
+        int numero=0,numleido=0;
+        try {
+            FileInputStream entradaArchivo = new FileInputStream(ruta+"numeros.dat");
+            ObjectInputStream entrada = new ObjectInputStream(entradaArchivo);
+            System.out.println("Comienzo de busqueda...");
+            numleido=entrada.readInt();
+            while (numero!=999){
+                if (numleido==numero) {
+                    encontrado = true;
+                    break;
+                }
+                numleido=entrada.readInt();
+            }
+            System.out.println("Finalizacion de la busqueda");
+            entrada.close();
+
+        } catch (IOException e) {
+        }
+        return encontrado;
     }
 
     public static void main(String[] args) {
@@ -51,14 +89,25 @@ public class Ficheros_Binarios {
         switch(opcion){
             case 1:
                 CrearFichero();
+                break;
             case 2:
+                ListasFicheros();
+                break;
+            case 3: 
+                if(BuscarNumero()){
 
-            case 3:
+                }else{
 
+                }
+                break;
             case 4:
 
+                break;
             case 5:
-
+                break;
+                
+            default:
+                System.out.println("No has tecleado ninguna de las opciones");
         }
         
     }
