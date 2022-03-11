@@ -40,7 +40,7 @@ public class Rombo {
             for(int asteriscos=1;asteriscos<=(numFilas-altura)*2 +1;asteriscos++){
                 System.out.print("*");
             }
-            System.out.println();
+            System.out.println("");
         }
     }
 }
