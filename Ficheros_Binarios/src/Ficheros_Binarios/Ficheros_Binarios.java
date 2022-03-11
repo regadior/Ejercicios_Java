@@ -61,8 +61,11 @@ public class Ficheros_Binarios {
         }
     }
     static boolean BuscarNumero(){
+        Scanner sc = new Scanner(System.in);
         boolean encontrado = false;
         int numero=0,numleido=0;
+        System.out.print("Teclea el numero que deseas buscar: ");
+        numero=sc.nextInt();
         try {
             FileInputStream entradaArchivo = new FileInputStream(ruta+"numeros.dat");
             ObjectInputStream entrada = new ObjectInputStream(entradaArchivo);
@@ -77,10 +80,39 @@ public class Ficheros_Binarios {
             }
             System.out.println("Finalizacion de la busqueda");
             entrada.close();
-
+            sc.close();
         } catch (IOException e) {
         }
         return encontrado;
+    }
+
+    static void BuscarNumeroRepetido(){
+        int numero=0,numleido=0,cont=0;
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Escribe el nuemro que deseas buscar cuantas beces se repite: ");
+        numero=sc.nextInt();
+        try {
+            FileInputStream entradaArchivo = new FileInputStream(ruta+"numeros.dat");
+            ObjectInputStream entrada = new ObjectInputStream(entradaArchivo);
+            System.out.println("Comienzo de busqueda...");
+            numleido=entrada.readInt();
+            while (numero!=999){
+                if (numleido==numero) {
+                    cont++;
+                }
+                numleido=entrada.readInt();
+            }
+            System.out.println("Finalizacion de la busqueda");
+            entrada.close();
+            sc.close();
+
+        } catch (IOException e) {
+        }
+        if (cont!=0) {
+            System.out.println("El nuemro esta grabado "+cont+" veces");
+        } else {
+            System.out.println("El nuemro no esta grabado ");
+        }
     }
 
     public static void main(String[] args) {
@@ -95,13 +127,13 @@ public class Ficheros_Binarios {
                 break;
             case 3: 
                 if(BuscarNumero()){
-
+                    System.out.println("El numero si que esta grabado");
                 }else{
-
+                    System.out.println("El numero no esta grabado");
                 }
                 break;
             case 4:
-
+                BuscarNumeroRepetido();
                 break;
             case 5:
                 break;
