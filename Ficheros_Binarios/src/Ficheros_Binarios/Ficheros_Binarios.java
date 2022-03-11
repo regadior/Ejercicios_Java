@@ -1,5 +1,5 @@
 package Ficheros_Binarios;
-import java.io.EOExecton;
+import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -7,7 +7,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Scanner;
 public class Ficheros_Binarios {
-    static final String ruta="C:\\Java-practica\\Ficheros_Binarios\\src\\Ficheros_Binarios";
+    static final String ruta="C:\\Java-practica\\Ficheros_Binarios\\src\\Ficheros_Binarios\\";
     static int menu(){
         Scanner sc = new Scanner(System.in);
         int op=0;
@@ -18,7 +18,7 @@ public class Ficheros_Binarios {
         System.out.println("4.Buscar Numero y Veces Que Se Repite");
         System.out.println("5.Fin");
         do {
-            System.out.print("Teclea una opcion del 1 a 5-->");
+            System.out.print("Teclea una opcion del 1 a 5--> ");
             op = sc.nextInt();
         } while (op<1 || op>5);
         sc.close();
@@ -39,8 +39,7 @@ public class Ficheros_Binarios {
             }
             entrada.close();
             salida.close();
-            archivo.close();
-        } catch (IOException ioe) {
+        }catch (IOException ioe) {
             System.out.println("El fichero no se ha podido abrir");
            
         }
@@ -52,7 +51,7 @@ public class Ficheros_Binarios {
             FileInputStream entradaArchivo = new FileInputStream(ruta+"numeros.dat");
             ObjectInputStream entrada = new ObjectInputStream(entradaArchivo);
             while (num!=999) {
-                System.out.println("Los numeros son: ");
+                System.out.println(num);
                 num=entrada.readInt();
             }
             entrada.close();
@@ -135,9 +134,7 @@ public class Ficheros_Binarios {
             case 4:
                 BuscarNumeroRepetido();
                 break;
-            case 5:
-                break;
-                
+
             default:
                 System.out.println("No has tecleado ninguna de las opciones");
         }
