@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 @SuppressWarnings("resource")
 public class Ficheros_Binarios {
-    static final String ruta = "D:\\Java-practica\\Ficheros_Binarios\\src\\Ficheros_Binarios";
+    static final String ruta = "D:\\Java-practica\\Ficheros_Binarios\\src\\Ficheros_Binarios\\";
 
     static int menu(Scanner sc) {
         int opcion = 0;
