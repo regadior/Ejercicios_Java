@@ -2,7 +2,7 @@ package mantenimiento;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 public class MantAlum_01{
-	static final String ruta="G:\\Mi unidad\\PROGRAMACIÓN\\EJERCICIOS\\3ª EV\\textos";
+	static final String ruta="C:\\Ejercicios_Java\\Binarios aleatorios\\src\\mantenimiento\\";
 	String menu(int tm) throws IOException{
 		Teclado t = new Teclado();
 		switch(tm){

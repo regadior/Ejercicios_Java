@@ -25,7 +25,7 @@ public class Articulo{
 	int tamano() { //20+2 este 2 es el control de los unicode igual que para el char
 		return(4+20+2+8+8+8+4+2);
 	}
-	String construirDenom() { //no se pasan parámetros porque ya está en el objeto
+	String construirDenom() { //no se pasan parï¿½metros porque ya estï¿½ en el objeto
 		String aux;
 		int relleno;
 		denominacion.trim();
@@ -89,15 +89,15 @@ public class Articulo{
 		case 1:
 			System.out.println("1.Nombre..............."+denominacion);
 			System.out.println("2.Stock actual..............."+stockAct);
-			System.out.println("3.Stock mínimo..............."+stockMin);
-			System.out.println("4.Stock máximo..............."+stockMax);
+			System.out.println("3.Stock mï¿½nimo..............."+stockMin);
+			System.out.println("4.Stock mï¿½ximo..............."+stockMax);
 			System.out.println("5.Precio..............."+precio);
 			System.out.println("6.Aviso..............."+aviso);
 		case 2:
 			System.out.println("Nombre..............."+denominacion);
 			System.out.println("Stock actual..............."+stockAct);
-			System.out.println("Stock mínimo..............."+stockMin);
-			System.out.println("Stock máximo..............."+stockMax);
+			System.out.println("Stock mï¿½nimo..............."+stockMin);
+			System.out.println("Stock mï¿½ximo..............."+stockMax);
 			System.out.println("Precio..............."+precio);
 			System.out.println("Aviso..............."+aviso);
 			break;

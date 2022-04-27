@@ -23,7 +23,7 @@ public class Alumno{
 	int tamano() {
 		return(4+25+2+4+4+2);
 	}
-	String construirNombre() { //no se pasan parámetros porque ya está en el objeto
+	String construirNombre() { //no se pasan parï¿½metros porque ya estï¿½ en el objeto
 		String aux;
 		int relleno;
 		nombre.trim();
