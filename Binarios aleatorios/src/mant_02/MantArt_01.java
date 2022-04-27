@@ -5,7 +5,7 @@ import java.io.RandomAccessFile;
 import mantenimiento.Alumno;
 import mantenimiento.Teclado;
 public class MantArt_01{
-	static final String ruta="G:\\Mi unidad\\PROGRAMACIÓN\\EJERCICIOS\\3ª EV\\textos";
+	static final String ruta="C:\\Ejercicios_Java\\Binarios aleatorios\\src\\mant_02\\";
 	String menu(int tm) throws IOException{
 		Teclado t = new Teclado();
 		switch(tm){
@@ -23,20 +23,20 @@ public class MantArt_01{
 			System.out.println("G.- General.");
 			System.out.println();
 			System.out.println();
-			System.out.println("V.- Volver a Menú. ");
+			System.out.println("V.- Volver a Menï¿½. ");
 			break;
 		}
-		System.out.print("\n\n\tTeclee opción:  ");
+		System.out.print("\n\n\tTeclee opciï¿½n:  ");
 		String op = t.leerString();
 		return op;
 	}
 	public static void main(String []args) {
-		MantArt_01 ma= new MantArt_01(); //instancio la propia clase para moverme por los métodos de la propia clase ahorrándome los static
-		//evitando conflictos con los nombres de otras clases ya que especificas qué clase es.
+		MantArt_01 ma= new MantArt_01(); //instancio la propia clase para moverme por los mï¿½todos de la propia clase ahorrï¿½ndome los static
+		//evitando conflictos con los nombres de otras clases ya que especificas quï¿½ clase es.
 		String opcion;
 		boolean fin=false;
 		RandomAccessFile fs=new RandomAccessFile (ruta+"articulos.dat","rw"); // si lo abres de rw y no existe cuando lo lees lo crea
-		fs.close(); // así te aseguras con certeza de que el fichero existe.-
+		fs.close(); // asï¿½ te aseguras con certeza de que el fichero existe.-
 		while (!fin) {
 			opcion = ma.menu(0);
 			if(opcion.equalsIgnoreCase("A")) ma.altas();
@@ -61,7 +61,7 @@ public class MantArt_01{
 			}
 			if(opcion.equalsIgnoreCase("F")) {
 				ma.fin();
-				fin=true; //solamente está a verdadero cuando pulso f y salgo del while.
+				fin=true; //solamente estï¿½ a verdadero cuando pulso f y salgo del while.
 			}
 		}
 	}
@@ -76,7 +76,7 @@ public class MantArt_01{
 		RandomAccessFile fich = new RandomAccessFile(ruta+"articulos.dat","rw");
 		System.out.println("\n\tALTAS\n\t");
 		do {
-			System.out.print("Código (0 = Fin) ");
+			System.out.print("Cï¿½digo (0 = Fin) ");
 			codigo= t.leerInt();
 		}while(codigo==Integer.MIN_VALUE);
 		while(codigo!=0) { // si no quieres salir no tecleas cero.
@@ -86,7 +86,7 @@ public class MantArt_01{
 				System.out.println("\n\tEl registro ya existe.....\n");
 			else {
 				do {
-					System.out.print("Denominación.....");
+					System.out.print("Denominaciï¿½n.....");
 					denominacion=t.leerString();
 				}while(denominacion.length()>20);
 				do {
@@ -95,11 +95,11 @@ public class MantArt_01{
 				}while(stockAct==Double.MIN_VALUE);
 				do {
 					do {
-						System.out.print("Stock mínimo.....");
+						System.out.print("Stock mï¿½nimo.....");
 						stockAct=t.leerDouble();
 					}while(stockMin==Double.MIN_VALUE);
 					do {
-						System.out.print("Stock máximo.....");
+						System.out.print("Stock mï¿½ximo.....");
 						stockMax=t.leerDouble();
 					}while(stockMax==Double.MIN_VALUE);
 				}while(stockMax<stockMin);
@@ -115,14 +115,14 @@ public class MantArt_01{
 					a= new Articulo(codigo,denominacion,stockAct,stockMin,stockMax,precio,' ');
 					if(codigo * a.tamano()>fich.length())
 						fich.seek(fich.length()); // como queda mucho recorrido te pones en la posicion "final"
-					while(codigo*a.tamano()>fich.length()) //mientras la dirección sea mayor que la longitud
-						av.grabarEnArchivo(fich); //como no puede haber espacios se crean registros en blanco (av es el archivo vacío)
-					fich.seek(codigo * a.tamano()); // ya se dejó de cumplir el while por lo que ya estoy posicionado.
+					while(codigo*a.tamano()>fich.length()) //mientras la direcciï¿½n sea mayor que la longitud
+						av.grabarEnArchivo(fich); //como no puede haber espacios se crean registros en blanco (av es el archivo vacï¿½o)
+					fich.seek(codigo * a.tamano()); // ya se dejï¿½ de cumplir el while por lo que ya estoy posicionado.
 					a.grabarEnArchivo(fich);
 				}
 			}				
 			do {
-				System.out.print("Código (0 = Fin) ");
+				System.out.print("Cï¿½digo (0 = Fin) ");
 				codigo= t.leerInt();
 			}while(codigo==Integer.MIN_VALUE);	
 		}
@@ -135,7 +135,7 @@ public class MantArt_01{
 		System.out.println("\n\tCONSULTAS\n\t");
 		RandomAccessFile fich = new RandomAccessFile(ruta+"articulos.dat","r");	
 		do {
-			System.out.print("\nTeclee código del artículo ");
+			System.out.print("\nTeclee cï¿½digo del artï¿½culo ");
 			codBus= t.leerInt();
 		}while(codBus==Integer.MIN_VALUE);
 		fich.seek(codBus * a.tamano());
@@ -143,7 +143,7 @@ public class MantArt_01{
 		if(a.getCodigo()!=0)
 			a.mostrarDatos(2);
 		else
-			System.out.println("\nNo existe ningún artículo con el número: "+codBus);
+			System.out.println("\nNo existe ningï¿½n artï¿½culo con el nï¿½mero: "+codBus);
 		fich.close();
 		System.out.println("\n Teclee <Intro> para continuar.");
 		System.in.read();
