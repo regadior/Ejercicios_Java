@@ -40,7 +40,7 @@ public class MantArt_01{
 		while (!fin) {
 			opcion = ma.menu(0);
 			if(opcion.equalsIgnoreCase("A")) ma.altas();
-			if(opcion.equalsIgnoreCase("B")) ma.bajas();
+			//if(opcion.equalsIgnoreCase("B")) ma.bajas();
 			if(opcion.equalsIgnoreCase("M")) ma.modificaciones();
 			if(opcion.equalsIgnoreCase("C")) ma.consultas();
 			if(opcion.equalsIgnoreCase("L")) {
