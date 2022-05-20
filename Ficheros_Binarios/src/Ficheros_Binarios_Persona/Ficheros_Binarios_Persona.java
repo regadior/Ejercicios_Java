@@ -13,7 +13,7 @@ public class Ficheros_Binarios_Persona {
         Scanner sc = new Scanner(System.in);
         boolean comprobador=false;
         int op=0;
-        
+
         while (comprobador) {
             try{
                     System.out.println("\n\tMENÚ\n\t====");
