@@ -12,17 +12,17 @@ import java.util.Scanner;
 
 
 public class FichTextFacturaModif {
-	static  final String ruta = "C:\\Users\\Profesor\\JavaDAM_1\\";
+	static  final String ruta = "D:\\Ejercicios_Java\\Examen\\src\\FichTextFacturaModif\\src\\";
 	static int menu(Scanner e) {
 		int op = 0;
 		System.out.println("\n\tMENU\n\t====\n");
 		System.out.println("1.- Altas.");
 		System.out.println("2.- Factura.");
-		System.out.println("3.- Modificaci�n Factura");
+		System.out.println("3.- Modificacion Factura");
 		System.out.println("4.- Fin.\n");
 		do {
 			try {
-				System.out.print("\tTeclee opci�n (1-4)? ");
+				System.out.print("\tTeclee opción (1-4)? ");
 				op = e.nextInt();
 			}catch(InputMismatchException ime) {
 				op = 10;
@@ -41,7 +41,7 @@ public class FichTextFacturaModif {
 			BufferedWriter esc = new BufferedWriter(new FileWriter (ruta+"articulos.txt",true));
 			System.out.println("\n\tALTAS\n\t=====\n");
 			do {
-				System.out.print("C�digo (m�ximo 6 caracteres) (\"*\" para fin)?.....: ");
+				System.out.print("Código (móximo 6 caracteres) (\"*\" para fin)?.....: ");
 				codigo = e.nextLine();
 			}while(codigo.length()!=6 && !codigo.equals("*"));
 			while(!codigo.equals("*")){
@@ -123,7 +123,7 @@ public class FichTextFacturaModif {
 		try {
 			BufferedReader lec = new BufferedReader(new FileReader (ruta+"articulos.txt"));
 			System.out.println("\n\t\t\t\t\tFactura\n\t\t\t\t\t-------\n");
-			System.out.println("C�digo\tDenominaci�n\t\tPrec. Uni.\tUnid. Vend.\tTipo\tPrecio\t\tIVA\tPrecio + IVA");
+			System.out.println("Código\tDenominación\t\tPrec. Uni.\tUnid. Vend.\tTipo\tPrecio\t\tIVA\tPrecio + IVA");
 			System.out.println("--------------------------------------------------------------------------------");
 			codigo = lec.readLine();
 			while (codigo != null) {
@@ -223,19 +223,19 @@ public class FichTextFacturaModif {
 		System.out.print("\n\tMODIFICACIONES\n\t==============\n");
 		do {
 			do {
-				System.out.print("C�digo de art�culo? ");
+				System.out.print("Código de artículo? ");
 				codigoBuscar = e.next();
 			}while(codigoBuscar.length() != 6);
 			ia = buscarArticulo(codigoBuscar,varticulo);
 //			System.out.println("ia = "+ia+"\tvarticulo.length = "+varticulo.length);
 			if(ia == varticulo.length)
-				System.out.println("El art�culo con codigo \""+codigoBuscar+"\" no existe.\n");
+				System.out.println("El articulo con codigo \""+codigoBuscar+"\" no existe.\n");
 			else {
 				denominacionN = varticulo[ia].getDenominacion();
 				precioN = varticulo[ia].getPrecio();
 				tipoN = varticulo[ia].getTipo();
 				uniVendidasN = varticulo[ia].getUniVendidas();
-				System.out.println("1.- Denominaci�n.......: "+denominacionN);
+				System.out.println("1.- Denominación.......: "+denominacionN);
 				System.out.println("2.- Precio.............: "+precioN);
 				System.out.println("3.- Tipo...............: "+tipoN);
 				System.out.println("4.- Unidades Vendidas..: "+uniVendidasN);			
@@ -253,7 +253,7 @@ public class FichTextFacturaModif {
 					switch(cm) {
 					case 1:
 						do{
-							System.out.print("\nTeclee nueva denominaci�n (m�x 15 caracteres)? ");
+							System.out.print("\nTeclee nueva denominación (máx 15 caracteres)? ");
 							denominacionN = e.nextLine();
 						}while(denominacionN.length() > 15);
 						break;
@@ -308,8 +308,8 @@ public class FichTextFacturaModif {
 		Scanner entrada = new Scanner(System.in);
 		int opcion = 0;
 		do {
-			opcion = menu(entrada);
-			switch(opcion) {
+			
+			switch(menu(entrada)) {
 			case 1:
 				altas(entrada);
 				break;
