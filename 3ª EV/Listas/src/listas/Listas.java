@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 //una lista la puedo trabajar como una tabla
 //arrayList, array de string
-// la lista es un array dinámico.
-// aquí no hace falta dar tamaño inicial, va aumentando 
+// la lista es un array dinï¿½mico.
+// aquï¿½ no hace falta dar tamaï¿½o inicial, va aumentando 
 // a medida que aumentamos los registros.
 // si borras un elemento del medio no pasa nada.
 // puedes mostrar las listas con un for, un while con iterante o visualizar de golpe
@@ -16,8 +16,8 @@ public class Listas{
 		Scanner e= new Scanner(System.in);
 		String p=null, pBus=null;
 		int ini=0,fin=0;
-		/************************definición de la lista********************************/
-		List<String> lista= new ArrayList<String>(); //se pone el <String> para que no pille el arrayList genérico.
+		/************************definiciï¿½n de la lista********************************/
+		List<String> lista= new ArrayList<String>(); //se pone el <String> para que no pille el arrayList genï¿½rico.
 		//entre las llaves se pone el tipo de dato o incluso objetos.
 		/************************llenado de la lista********************************/
 		System.out.println("Teclee palabra (fin para terminar): ");
@@ -28,30 +28,30 @@ public class Listas{
 			p=e.nextLine();
 		}
 		System.out.println("Lista creada => "+lista); //entre corchetes
-		System.out.println("\nTamaño de la lista => "+lista.size()+"\n\n");
+		System.out.println("\nTamaï¿½o de la lista => "+lista.size()+"\n\n");
 		/************************visualizado de la lista********************************/
-		//con un índice
+		//con un ï¿½ndice
 		for(int i=0;i< lista.size();i++)
 			System.out.println(lista.get(i)); //get para sacarlos
 		System.out.println("\n\n");
 		//con iterator
 		Iterator<String> it=lista.iterator();
-		while(it.hasNext()) //método booleano que devuelve verdadero mientras en el siguiente elemento encuentre algo.
+		while(it.hasNext()) //mï¿½todo booleano que devuelve verdadero mientras en el siguiente elemento encuentre algo.
 			System.out.println(it.next());
-		/************************modificación de la lista********************************/
+		/************************modificaciï¿½n de la lista********************************/
 		System.out.println("\nNueva palabra: ");
 		p=e.nextLine();
-		System.out.println("\nPosición: ");
+		System.out.println("\nPosiciÃ³n: ");
 		ini=e.nextInt();
 		lista.set(ini, p);
 		e.nextLine();
 		visualizarLista(lista);
 		visualizarListaIterator(lista);
 		/********************borrar elemento de la lista********************************/
-		System.out.println("Posición del elemento a borrar?: ");
+		System.out.println("PosiciÃ³n del elemento a borrar?: ");
 		ini=e.nextInt();
 		e.nextLine(); 
-		lista.remove(ini); //borrará el primero que encuentre con ese valor.
+		lista.remove(ini); //borrarï¿½ el primero que encuentre con ese valor.
 		System.out.println("Palabra a borrar: ");
 		p=e.nextLine();
 		e.nextLine(); 
@@ -65,29 +65,29 @@ public class Listas{
 		fin=e.nextInt();
 		if(fin>lista.size())
 			fin=lista.size(); //si te pasas te pones al final, pero puede estar fuera de rango como cualquier array corriente.
-		e.nextLine(); //la posición de inicio es incluida y la de fin es excluida
+		e.nextLine(); //la posiciï¿½n de inicio es incluida y la de fin es excluida
 		System.out.println("\n"+lista.subList(ini, fin));
 		/********************Buscar un elemento en lista********************************/
 		System.out.println("Palabra a buscar: ");
 		pBus=e.nextLine();
 		if(lista.contains(pBus))
-			System.out.println("\nLa palabra SI está en la lista");
+			System.out.println("\nLa palabra SI estÃ¡ en la lista");
 		else			
-			System.out.println("\nLa palabra NO está en la lista");
-		/********************Comprobar si la lista está llena********************************/
+			System.out.println("\nLa palabra NO estÃ¡ en la lista");
+		/********************Comprobar si la lista estï¿½ llena********************************/
 		if(lista.isEmpty())
-			System.out.println("La lista SI está vacía (primera).");
+			System.out.println("La lista SI estÃ¡ vacÃ­a (primera).");
 		else
-			System.out.println("La lista NO está vacía (primera).");
+			System.out.println("La lista NO estÃ¡ vacÃ­a (primera).");
 		lista.clear();//borramos todos los elementos de la lista if(lista.isEmpty()).
 		if(lista.isEmpty())
-			System.out.println("La lista SI está vacía (segunda).");
+			System.out.println("La lista SI estÃ¡ vacÃ­a (segunda).");
 		else
-			System.out.println("La lista NO está vacía (segunda).");
+			System.out.println("La lista NO estÃ¡ vacÃ­a (segunda).");
 		e.close();
 	}
 	static void visualizarLista(List<String> lista) {
-		System.out.println("\n\tCon índice.\n");
+		System.out.println("\n\tCon ï¿½ndice.\n");
 		for(int i=0;i<lista.size();i++)
 			System.out.println(lista.get(i));
 		System.out.println("\n\n");
@@ -95,7 +95,7 @@ public class Listas{
 	static void visualizarListaIterator(List<String> lista) {
 		System.out.println("\n\tCon iterator.\n");
 		Iterator<String> it=lista.iterator();
-		while(it.hasNext()) //método booleano que devuelve verdadero mientras en el siguiente elemento encuentre algo.
+		while(it.hasNext()) //mï¿½todo booleano que devuelve verdadero mientras en el siguiente elemento encuentre algo.
 			System.out.println(it.next());
 	}
 
