@@ -2,16 +2,26 @@ package ficherobinprovincias;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+<<<<<<< HEAD
+=======
+import java.io.EOFException;
+>>>>>>> 8f9f658a3992992aa9b4df5229fd656b6de8eb71
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.InputMismatchException;
 //import java.util.Iterator;
+=======
+import java.util.Collections;
+import java.util.InputMismatchException;
+>>>>>>> 8f9f658a3992992aa9b4df5229fd656b6de8eb71
 import java.util.List;
 import java.util.Scanner;
 
 public class FicheroBinProvincias{
+<<<<<<< HEAD
 	static final String ruta="D:\\Ejercicios_Java\\3Âª EV\\textos\\";
 	static int menu(Scanner e) {
 		int op = 0; 
@@ -28,11 +38,31 @@ public class FicheroBinProvincias{
 		do {
 			try {
 				System.out.print("\n\tTeclee opciï¿½n(1-9): ");
+=======
+	static final String ruta="G:\\Mi unidad\\PROGRAMACIÓN\\EJERCICIOS\\3ª EV\\textos\\";
+	static int menu(Scanner e) {
+		int op = 0; 
+		System.out.println("\n\tMENÚ\n\t====");
+		System.out.println("1.Altas. ");
+		System.out.println("2.Listado provincias.");
+		System.out.println("3.Crear lista.");
+		System.out.println("4.Listado entre límites.");
+		System.out.println("5.Visualizar lista.");
+		System.out.println("6.Modificar el fichero.");
+		System.out.println("7.Fin.");
+		do {
+			try {
+				System.out.print("\n\tTeclee opción(1-6): ");
+>>>>>>> 8f9f658a3992992aa9b4df5229fd656b6de8eb71
 				op = e.nextInt();
 			}catch(InputMismatchException ime) {
 				op=Integer.MAX_VALUE;					
 			}			
+<<<<<<< HEAD
 		}while (op < 1 || op > 9);
+=======
+		}while (op < 1 || op > 7);
+>>>>>>> 8f9f658a3992992aa9b4df5229fd656b6de8eb71
 		e.nextLine();
 		return op;
 	}	
@@ -52,6 +82,7 @@ public class FicheroBinProvincias{
 			esc.close();
 		}catch(IOException ioe) {}
 	}
+<<<<<<< HEAD
 	static void listado(Scanner e, int tl){
 		int n=0;
 		String p=null,letra=null;
@@ -69,6 +100,18 @@ public class FicheroBinProvincias{
 				if(tl==0||tl==1&&tieneLetra(letra,p)) 
 					System.out.println(++n +"\t"+p);
 				p = lee.readUTF();	
+=======
+	static void listado(){
+		int n=0;
+		String p=null;
+		try {
+			DataInputStream lee= new DataInputStream(new FileInputStream(ruta + "provincias.dat"));
+			System.out.println("\n\tLISTADO FICHERO\n\t===============\n\n\t");
+			p = lee.readUTF();
+			while(!p.equals(null)) {
+				System.out.println(++n +"\t"+p);
+				p = lee.readUTF();
+>>>>>>> 8f9f658a3992992aa9b4df5229fd656b6de8eb71
 			}
 			lee.close();
 		}catch(IOException ioe) {}
@@ -87,6 +130,7 @@ public class FicheroBinProvincias{
 			}
 			lee.close();
 		}catch(IOException ioe) {}
+<<<<<<< HEAD
 		System.out.println("Lista creada");
 	}
 	static void crearLaLista(List<String>l) {
@@ -146,11 +190,18 @@ public class FicheroBinProvincias{
 
 	//si sï¿½ las veces que tiene que leer
 	//	static void crearLista(List<String> l) throws IOException{
+=======
+		System.out.println("Lista creaada");
+	}
+	//si sé las veces que tiene que leer
+	//	static void crearLista(List<String> l){
+>>>>>>> 8f9f658a3992992aa9b4df5229fd656b6de8eb71
 	//		String p=null;
 	//		System.out.println("\nCreando lista...");
 	//		//LLENAR LISTA
 	//		DataInputStream lee= new DataInputStream(new FileInputStream(ruta + "provincias.dat"));
 	//		try {
+<<<<<<< HEAD
 	//			for(int i=0;i<l.size();i++){
 	//			p=lee.readUTF();
 	//				l.add(p);
@@ -227,6 +278,52 @@ public class FicheroBinProvincias{
 		l.set(n-1,nomN);
 		grabarFicheroDesdeLista(l);
 
+=======
+	//			for(int i=0
+	//			p=lee.readUTF();
+	//			while(!p.equals(null)) {
+	//				l.add(p);
+	//				p=lee.readUTF();
+	//			}
+	//			lee.close();
+	//		}catch(IOException ioe) {}
+	//		System.out.println("Lista creaada");
+	//	}
+	static void ordenarLista(List<String>l) {
+		System.out.println("Ordenando lista...");
+		Collections.sort(l);
+	}
+	static void grabarFichero(List <String> l, DataOutputStream f) throws IOException{
+		for(int i=0;i<l.size();i++) 
+			f.writeUTF(l.get(i));	
+	}
+	static void ordenarFichero() throws IOException{
+		List <String>l= new ArrayList <String>();
+		DataInputStream ficheroEnt = new DataInputStream(new FileInputStream(ruta + "provincias.dat"));
+		ordenarLista(l);
+		ficheroEnt.close();
+		DataOutputStream ficheroSal = new DataOutputStream(new FileOutputStream(ruta + "provincias.dat",true));			
+		grabarFichero(l,ficheroSal);
+		ficheroSal.close();
+		System.out.println("Fichero ordenado...");
+	}
+
+	static List <String> visualizar (List <String> l){
+		ordenarLista(l);
+		System.out.println("\n\tVISUALIZAR LISTA\n\t===============");
+		for(int i=0;i<l.size();i++) {
+			if(l.isEmpty())
+				System.out.println("Vacía");
+			else {
+				System.out.println(l.get(i));
+			}
+
+			System.out.println(l.get(i));
+		}
+		System.out.println("\n\n");
+		System.out.println("\n\n"+l);
+		return l;
+>>>>>>> 8f9f658a3992992aa9b4df5229fd656b6de8eb71
 	}
 	static void fin() {
 		System.out.println("\n\tFIN DEL PROGRAMA\n\t================");
@@ -235,7 +332,11 @@ public class FicheroBinProvincias{
 		Scanner e= new Scanner(System.in);
 		int op=0;
 		boolean fin=false;
+<<<<<<< HEAD
 		List<String> l= new ArrayList<String>();
+=======
+		List<String> prov= new ArrayList<String>();
+>>>>>>> 8f9f658a3992992aa9b4df5229fd656b6de8eb71
 		do {
 			op=menu(e);
 			switch(op) {
@@ -243,6 +344,7 @@ public class FicheroBinProvincias{
 				altas(e);
 				break;
 			case 2:
+<<<<<<< HEAD
 				listado(e,0);
 				break;
 			case 3:
@@ -265,10 +367,31 @@ public class FicheroBinProvincias{
 				//				hayLetra(e,l);
 				visualizarLista(l,1,e);
 				break;
+=======
+				listado();
+				break;
+			case 3:
+				crearLista(prov);
+				break;
+			case 4:
+				listadoLimites();
+				break;
+			case 5:
+				visualizar(prov);
+				break;
+			case 6:
+				ordenar();
+				break;a
+
+>>>>>>> 8f9f658a3992992aa9b4df5229fd656b6de8eb71
 			default:
 				fin();
 				fin=true;
 			}
+<<<<<<< HEAD
 		}while(!fin && op!=9);
+=======
+		}while(!fin);
+>>>>>>> 8f9f658a3992992aa9b4df5229fd656b6de8eb71
 	}
 }
