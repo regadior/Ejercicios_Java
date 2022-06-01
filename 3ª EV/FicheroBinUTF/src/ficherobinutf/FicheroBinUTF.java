@@ -8,18 +8,18 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Scanner;
 public class FicheroBinUTF{
-	static final String ruta="D:\\Ejercicios_Java\\3Âª EV\\textos\\";
+	static final String ruta="C:\\Users\\DA-1.PUESTO222\\Desktop\\ejercicios programación\\textos";
 	static int menu(Scanner e) {
 		int op = 0; 
 		e= new Scanner(System.in);
-		System.out.println("\n\tMENï¿½\n\t====");
+		System.out.println("\n\tMENÚ\n\t====");
 		System.out.println("1.Altas.");
 		System.out.println("2.Listado.");
-		System.out.println("3.Crear fichero segï¿½n inicial.");
-		System.out.println("4.Listar fichero segï¿½n inicial.");
+		System.out.println("3.Crear fichero según inicial.");
+		System.out.println("4.Listar fichero según inicial.");
 		System.out.println("5.Fin.");
 		do {
-			System.out.print("\n\tTeclee opciï¿½n(1-5): ");
+			System.out.print("\n\tTeclee opción(1-5): ");
 			op = e.nextInt();
 		} while (op < 1 || op > 5);	
 		e.nextLine();//vaciar buffer entrada
@@ -101,7 +101,7 @@ public class FicheroBinUTF{
 					}
 					nombre=entrada.readUTF();
 				}catch(EOFException ioe){
-					entrada.close(); // da igual cerrarlos aquï¿½ o donde estï¿½ comentado porque la excepciï¿½n lo que controla es el fin del fichero.
+					entrada.close(); // da igual cerrarlos aquí o donde está comentado porque la excepción lo que controla es el fin del fichero.
 					salida.close();
 					fin=true;
 				}			

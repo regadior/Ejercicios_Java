@@ -2,7 +2,7 @@ package mant_04;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 public class MantPers_01{
-	static final String ruta="D:\\Ejercicios_Java\\3ª EV\\textos\\";
+	static final String ruta="G:\\Mi unidad\\PROGRAMACI�N\\EJERCICIOS\\3� EV\\textos\\";
 	String menu() throws IOException {
 		Teclado t = new Teclado();
 		System.out.println("\n\tMENU\n\t====\n");
@@ -48,6 +48,7 @@ public class MantPers_01{
 			System.out.print("N�mero (0 = Fin): ");
 			numero= t.leerInt();
 		}while(numero==Integer.MIN_VALUE);
+		
 		while(numero!=0) { // si no quieres salir no tecleas cero.
 			fich.seek(numero * pv.tamano()); //me posiciono 
 			pv.leerDeArchivo(fich); //leo el fichero
@@ -80,7 +81,6 @@ public class MantPers_01{
 				System.out.print("N�mero (0 = Fin): ");
 				numero= t.leerInt();
 			}while(numero==Integer.MIN_VALUE);
-
 			pv = new Persona(0,"",0);
 		}
 		fich.close();	

@@ -2,7 +2,7 @@ package mant_03;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 public class MantProv_01{
-	static final String ruta="D:\\Ejercicios_Java\\3Âª EV\\textos\\";
+	static final String ruta="G:\\Mi unidad\\PROGRAMACIÓN\\EJERCICIOS\\3ª EV\\textos\\";
 	String menu() throws IOException {
 		Teclado t = new Teclado();
 		String op=null;
@@ -14,7 +14,7 @@ public class MantProv_01{
 		System.out.println("L.- Listados.");
 		System.out.println("F.- Fin.");
 		do {
-			System.out.print("\n\n\tTeclee opciï¿½n: (A/B/M/C/L/F) ");
+			System.out.print("\n\n\tTeclee opción: (A/B/M/C/L/F) ");
 			op=t.leerString().toUpperCase();
 		}while(op.indexOf("ABMCLF")==0);
 		return op;
@@ -48,7 +48,7 @@ public class MantProv_01{
 		RandomAccessFile fich = new RandomAccessFile(ruta+"provincias.dat","rw");
 		System.out.println("\n\tALTAS\n\t=====");
 		do {
-			System.out.print("Nï¿½mero (0 = Fin): ");
+			System.out.print("Número (0 = Fin): ");
 			numero= t.leerInt();
 		}while(numero==Integer.MIN_VALUE);
 		while(numero!=0) { // si no quieres salir no tecleas cero.
@@ -66,7 +66,7 @@ public class MantProv_01{
 					superficie=t.leerFloat();
 				}while(superficie==Float.MIN_VALUE);
 				do {
-					System.out.print("Poblaciï¿½n.....: ");
+					System.out.print("Población.....: ");
 					poblacion=t.leerInt();
 				}while(poblacion<0);	
 				do {
@@ -88,7 +88,7 @@ public class MantProv_01{
 				}
 
 				do {
-					System.out.print("Nï¿½mero (0 = Fin): ");
+					System.out.print("Número (0 = Fin): ");
 					numero= t.leerInt();
 				}while(numero==Integer.MIN_VALUE);
 			}
@@ -102,7 +102,7 @@ public class MantProv_01{
 		System.out.println("\n\tCONSULTAS\n\t=========");
 		RandomAccessFile fich= new RandomAccessFile(ruta+"provincias.dat","r");
 		do {
-			System.out.println("Teclee nï¿½mero a buscar (0 para finalizar): ");
+			System.out.println("Teclee número a buscar (0 para finalizar): ");
 			numBus=t.leerInt();
 		}while(numBus==Integer.MIN_VALUE);
 		fich.seek(numBus*pv.tamano());
@@ -110,7 +110,7 @@ public class MantProv_01{
 		if(pv.getNumero()!=0)
 			pv.mostrarDatos(2);
 		else
-			System.out.println("\nNo existe ninguna provincia con el nï¿½mero: "+numBus);
+			System.out.println("\nNo existe ninguna provincia con el número: "+numBus);
 		fich.close();
 		System.out.println("\n Teclee <Intro> para continuar.");
 		t.leerSalto();
@@ -123,13 +123,13 @@ public class MantProv_01{
 		System.out.println("\n\tBAJAS\n\t=====");
 		RandomAccessFile fich= new RandomAccessFile(ruta+"provincias.dat","rw");
 		do {
-			System.out.println("Teclee nï¿½mero de provincia: ");
+			System.out.println("Teclee número de provincia: ");
 			numBus=t.leerInt();
 		}while(numBus==Integer.MIN_VALUE);
 		fich.seek(numBus*p.tamano());
 		p.leerDeArchivo(fich);
 		if(p.getNumero()==0)
-			System.out.println("La provincia con el nï¿½mero "+numBus+" no existe en el fichero.");
+			System.out.println("La provincia con el número "+numBus+" no existe en el fichero.");
 		else {
 			p.mostrarDatos(0);
 			do {
@@ -159,13 +159,13 @@ public class MantProv_01{
 		RandomAccessFile fich= new RandomAccessFile(ruta+"provincias.dat","rw");
 		do {
 			do {
-				System.out.println("Teclee nï¿½mero de la provincia a modificar: ");
+				System.out.println("Teclee número de la provincia a modificar: ");
 				numBus=t.leerInt();
 			}while(numBus==Integer.MIN_VALUE);
 			fich.seek(numBus*p.tamano());
 			p.leerDeArchivo(fich);
 			if(p.getNumero()==0)
-				System.out.println("La provincia con nï¿½mero: "+numBus+" no existe en el fichero.");
+				System.out.println("La provincia con número: "+numBus+" no existe en el fichero.");
 			else {
 				nombreN=p.getNombre();
 				superficieN=p.getSuperficie();
@@ -189,7 +189,7 @@ public class MantProv_01{
 					break;
 				case 3:
 					do {
-						System.out.println("Teclee la nueva poblaciï¿½n: ");
+						System.out.println("Teclee la nueva población: ");
 						poblacionN=t.leerInt();
 					}while(poblacionN==Integer.MIN_VALUE);
 					break;
@@ -205,7 +205,7 @@ public class MantProv_01{
 				}while(otro!='s' && otro!='n');
 			}while(Character.toLowerCase(otro)=='s');
 			do {
-				System.out.println("Confirmar modificaciones (s/n)ï¿½?");
+				System.out.println("Confirmar modificaciones (s/n)¿?");
 				otro=Character.toLowerCase(t.leerChar());
 			}while(otro!='s' && otro!='n');
 			if(otro=='s') {
@@ -227,7 +227,7 @@ public class MantProv_01{
 		Teclado t= new Teclado();
 		boolean fin=false;
 		int lineas=0;
-		final int LINEAS=lineas; //el finalbloquea el valor asï¿½ que no lo puedes asignar
+		final int LINEAS=lineas; //el finalbloquea el valor así que no lo puedes asignar
 		int pcon=0,psin=0,cp=0,
 				cl=LINEAS+1,pos=1; //cl es lineas +1 pa que la primera vez no imprima los pies
 		RandomAccessFile fich= new RandomAccessFile (ruta+"provincias.dat","r");
@@ -255,7 +255,7 @@ public class MantProv_01{
 
 			if(!fin) {
 				System.out.println("\t\tLISTADO\t\tPag.: "+ ++cp+"\n\t\t=============\n");
-				System.out.println("Nï¿½mero\tNombre\tSuperficie\tPoblaciï¿½n\tCosta\tDens.");
+				System.out.println("Número\tNombre\tSuperficie\tPoblación\tCosta\tDens.");
 				System.out.println("-------------------------------------------------------------------");
 				cl=0;				
 			}

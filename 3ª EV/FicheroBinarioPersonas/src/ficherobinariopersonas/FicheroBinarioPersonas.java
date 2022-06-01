@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 public class FicheroBinarioPersonas{
-	static final String ruta="D:\\Ejercicios_Java\\3Âª EV\\textos\\";
+	static final String ruta="C:\\Users\\DA-1.PUESTO222\\Desktop\\ejercicios programación\\textos\\";
 	public static void main(String []args)  throws IOException{
 		Scanner e= new Scanner(System.in);
 		int op=0;
@@ -44,14 +44,14 @@ public class FicheroBinarioPersonas{
 		int op = 0; 
 		switch(tm) {
 		case 0:
-			System.out.println("\n\tMENï¿½\n\t====");
+			System.out.println("\n\tMENÚ\n\t====");
 			System.out.println("1.Altas personas.");
 			System.out.println("2.Listados personas.");
-			System.out.println("3.Bï¿½squeda personas.");
+			System.out.println("3.Búsqueda personas.");
 			System.out.println("4.Fin.");
 			do {
 				try {
-					System.out.print("\n\tTeclee opciï¿½n(1-4): ");
+					System.out.print("\n\tTeclee opción(1-4): ");
 					op = e.nextInt();
 				}catch(InputMismatchException ime) {
 					op=Integer.MAX_VALUE;					
@@ -60,13 +60,13 @@ public class FicheroBinarioPersonas{
 			}while (op < 1 || op > 4);	
 			break;
 		case 1:
-			System.out.println("\n\tMENï¿½ Bï¿½SQUEDAS\n\t==============");
+			System.out.println("\n\tMENÚ BÚSQUEDAS\n\t==============");
 			System.out.println("1.Por nombre.");
 			System.out.println("2.Por sexo.");
-			System.out.println("3.Volver al menï¿½ principal.");
+			System.out.println("3.Volver al menú principal.");
 			do {
 				try {
-					System.out.print("\n\tTeclee opciï¿½n(1-3): ");
+					System.out.print("\n\tTeclee opción(1-3): ");
 					op = e.nextInt();
 				}catch(InputMismatchException ime) {
 					op=Integer.MAX_VALUE;
@@ -90,7 +90,7 @@ public class FicheroBinarioPersonas{
 				// de esta manera solamente se comprueba una vez
 				System.out.println("Teclea nombre (** para finalizar)");
 				nombre = e.nextLine();
-				if(nombre.equals("**")) { 
+				if(!nombre.equals("**")) { 
 					do {
 						try {
 							System.out.println("Edad? ");
@@ -100,13 +100,13 @@ public class FicheroBinarioPersonas{
 						}
 					}while(edad == Integer.MAX_VALUE);
 					do {
-						System.out.println("Sexo (V = Varï¿½n/M = mujer)? ");
+						System.out.println("Sexo (V = Varón/M = mujer)? ");
 						sexo = Character.toUpperCase((char) System.in.read());
 						while(System.in.read() != '\n');
 					}while(sexo != 'V' && sexo != 'M');
 					e.nextLine(); //NO TE LO OLVIDES PORQUE SINO SE QUEDA EL NOMBRE CON EL INTRO.
 
-					//if(nombre.equals("**")) { si pones aquï¿½ el if sigue con el alta pero no serï¿½a grabada 
+					//if(nombre.equals("**")) { si pones aquí el if sigue con el alta pero no sería grabada 
 					ficheroSal.writeUTF(nombre);
 					ficheroSal.writeInt(edad);
 					ficheroSal.writeChar(sexo);	
@@ -148,7 +148,7 @@ public class FicheroBinarioPersonas{
 		int edad=0;
 		boolean encontrado = false;
 		if (tb==0) {
-			System.out.println("Teclee nombreï¿½?");
+			System.out.println("Teclee nombre¿?");
 			nombreBus=e.nextLine();
 			try {
 				DataInputStream ficheroEnt = new DataInputStream(new FileInputStream(ruta + "persona2.dat"));
@@ -172,7 +172,7 @@ public class FicheroBinarioPersonas{
 		if(tb==1) {		
 			do {
 				try {
-					System.out.println("Teclee sexoï¿½?Sexo (V = Varï¿½n/M = mujer)? ");
+					System.out.println("Teclee sexo¿?Sexo (V = Varón/M = mujer)? ");
 					sexoBus=Character.toUpperCase((char)System.in.read());
 					while(System.in.read() != '\n');
 				}catch(IOException ioe) {}
@@ -196,7 +196,7 @@ public class FicheroBinarioPersonas{
 			}
 			System.out.println(edad+"\t\t"+sexo);
 		}
-		//EOFException eofe se puede usar pero como data lee datos y no objetos, por lo que aquï¿½ usamos el null que vale igualmente.
+		//EOFException eofe se puede usar pero como data lee datos y no objetos, por lo que aquí usamos el null que vale igualmente.
 	}
 	static void fin() {
 		System.out.println("\n\tFIN DEL PROGRAMA\n\t================");

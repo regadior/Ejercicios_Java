@@ -8,17 +8,17 @@ import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 public class FicheroBinPersonas{
-	static final String ruta="D:\\Ejercicios_Java\\3Âª EV\\textos\\";
+	static final String ruta="C:\\Users\\DA-1.PUESTO222\\Desktop\\ejercicios programación\\textos";
 	static int menu(Scanner e) {
 		int op = 0; 
-		System.out.println("\n\tMENï¿½\n\t====");
+		System.out.println("\n\tMENÚ\n\t====");
 		System.out.println("1.Altas.");
 		System.out.println("2.Consultas.");
 		System.out.println("3.Listados.");
 		System.out.println("4.Fin.");
 		do {
 			try {
-				System.out.print("\n\tTeclee opciï¿½n(1-4): ");
+				System.out.print("\n\tTeclee opción(1-4): ");
 				op = e.nextInt();
 			}catch(InputMismatchException ime) {
 				op=Integer.MAX_VALUE;
@@ -36,8 +36,8 @@ public class FicheroBinPersonas{
 		return correcto;
 	}
 	static String convertirLetraMayuscula(String dni) {
-		String n=dni.substring(0,8); //coges el nï¿½mero
-		n+=Character.toUpperCase(dni.charAt(8)); //lo concatenas con la letra en mayï¿½scula.
+		String n=dni.substring(0,8); //coges el número
+		n+=Character.toUpperCase(dni.charAt(8)); //lo concatenas con la letra en mayúscula.
 		return n;
 
 	}
@@ -55,7 +55,7 @@ public class FicheroBinPersonas{
 			}while(!comprobarDNI(dni) && !dni.equalsIgnoreCase("999"));
 			while(!dni.equalsIgnoreCase("999")){
 				do {
-					System.out.println("Nombre (mï¿½ximo 20 caracteres)? ");
+					System.out.println("Nombre (máximo 20 caracteres)? ");
 					nombre = e.nextLine();
 				}while(nombre.length()>20);
 				do {
@@ -136,7 +136,7 @@ public class FicheroBinPersonas{
 				System.out.println("\nNo existe nadie con el dni: "+dniBus+" en el fichero");
 			try {
 				do {
-					System.out.println("\tRealizar otra bï¿½squeda (s/n)? ");
+					System.out.println("\tRealizar otra búsqueda (s/n)? ");
 					otro = (char) System.in.read();
 					while(System.in.read() != '\n');
 				}while(otro != 's' && otro != 'n');
@@ -147,16 +147,16 @@ public class FicheroBinPersonas{
 	}
 	static char menuListados(Scanner e) {
 		char op=' ';
-		System.out.println("\n\tMENï¿½ LISTADOS.\n\t");
+		System.out.println("\n\tMENÚ LISTADOS.\n\t");
 		System.out.println("G. General.");
 		System.out.println("V. Hombres.");
 		System.out.println("M. Mujeres.");
 		System.out.println("E. Entre edades.");
-		System.out.println("F. Volver al menï¿½ principal.");
+		System.out.println("F. Volver al menú principal.");
 		do {
-			System.out.println("\t\t Teclee opciï¿½n(G/V/M/E/F)ï¿½?");
+			System.out.println("\t\t Teclee opción(G/V/M/E/F)¿?");
 			op=e.next().charAt(0);
-		}while("GVMEF".indexOf(op)==-1); /*si esta letra estï¿½ te indica la posiciï¿½n y si no estï¿½ te devuelve -1.*/
+		}while("GVMEF".indexOf(op)==-1); /*si esta letra está te indica la posición y si no está te devuelve -1.*/
 		switch(op) {
 		case 'g':
 			listadoGeneral();
@@ -205,7 +205,7 @@ public class FicheroBinPersonas{
 					}
 				}
 			}catch(IOException ioe) {}		
-			System.out.println("Nï¿½mero de hombres: "+c+"  \nMedia de su edad: "+(media/c));
+			System.out.println("Número de hombres: "+c+"  \nMedia de su edad: "+(media/c));
 		}
 		if(sexo=='M') {
 			try {
@@ -230,7 +230,7 @@ public class FicheroBinPersonas{
 					}
 				}
 			}catch(IOException ioe) {}		
-			System.out.println("Nï¿½mero de hombres: "+c+"  \nMedia de su edad: "+(media/c));
+			System.out.println("Número de hombres: "+c+"  \nMedia de su edad: "+(media/c));
 			if (sexo==' ')
 				try {
 					DataInputStream ficheroEnt= new DataInputStream(new FileInputStream(ruta + "gente.dat"));
@@ -254,7 +254,7 @@ public class FicheroBinPersonas{
 						}
 					}
 				}catch(IOException ioe) {}		
-			System.out.println("Nï¿½mero de personas: "+c+"  \nMedia de su edad: "+(media/c));
+			System.out.println("Número de personas: "+c+"  \nMedia de su edad: "+(media/c));
 		}	
 		return c;
 	}
@@ -288,8 +288,8 @@ public class FicheroBinPersonas{
 					}
 				}
 			}catch(IOException ioe) {}
-			System.out.println("El hombre mï¿½s joven tiene:" +menor);
-			System.out.println("El hombre mï¿½s mayor tiene:" +mayor);
+			System.out.println("El hombre más joven tiene:" +menor);
+			System.out.println("El hombre más mayor tiene:" +mayor);
 			break;
 		case 'g':
 			try {
@@ -316,8 +316,8 @@ public class FicheroBinPersonas{
 				}
 			}catch(IOException ioe) {}
 
-			System.out.println("La mujer mï¿½s joven tiene:" +menor);
-			System.out.println("La mujer mï¿½s mayor tiene:" +mayor);
+			System.out.println("La mujer más joven tiene:" +menor);
+			System.out.println("La mujer más mayor tiene:" +mayor);
 			break;
 		case 'm':
 			try {
@@ -344,8 +344,8 @@ public class FicheroBinPersonas{
 				}
 			}catch(IOException ioe) {}
 
-			System.out.println("La persona mï¿½s joven tiene:" +menor);
-			System.out.println("La persona mï¿½s mayor tiene:" +mayor);
+			System.out.println("La persona más joven tiene:" +menor);
+			System.out.println("La persona más mayor tiene:" +mayor);
 			break;
 		}
 	}
@@ -442,9 +442,9 @@ System.out.println("");
 		String nombre="",dni="";
 		char sexo=' ';
 		do {
-			System.out.println("Teclee una edad mï¿½nima");
+			System.out.println("Teclee una edad mínima");
 			edadMin=e.nextInt();
-			System.out.println("Teclee una edad mï¿½xima");
+			System.out.println("Teclee una edad máxima");
 			edadMax=e.nextInt();
 		}while(edadMin>edadMax);
 		try {

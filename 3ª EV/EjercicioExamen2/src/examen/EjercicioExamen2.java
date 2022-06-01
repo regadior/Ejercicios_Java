@@ -8,7 +8,7 @@ import java.io.BufferedReader;
 import java.util.InputMismatchException;
 public class EjercicioExamen2{
 	//static final String ruta="C:\\Datos\\";
-	static final String ruta="D:\\Ejercicios_Java\\3Âª EV\\textos\\";
+	static final String ruta="C:\\Users\\DA-1.PUESTO222\\Desktop\\ejercicios programación\\textos\\articulo.txt\\";
 	public static void main(String []args) {
 		Scanner e= new Scanner(System.in);
 		int op=0;
@@ -33,12 +33,12 @@ public class EjercicioExamen2{
 		int op=0;
 		do {
 			try {
-				System.out.println("\n\tMENï¿½\n\t====");
+				System.out.println("\n\tMENÚ\n\t====");
 				System.out.println("1.Altas.");
 				System.out.println("2.Factura.");
-				System.out.println("3.Modificaciï¿½n factura.");
+				System.out.println("3.Modificación factura.");
 				System.out.println("4.Fin.");
-				System.out.println("Teclee opciï¿½n (1-4)");
+				System.out.println("Teclee opción (1-4)");
 				op=e.nextInt();
 			}catch(InputMismatchException ime) {
 				op=Integer.MAX_VALUE;
@@ -54,12 +54,12 @@ public class EjercicioExamen2{
 			BufferedWriter escr=new BufferedWriter(new FileWriter(ruta+"articulo.txt"));	
 			System.out.println("ALTAS");
 			do {
-				System.out.println("Teclee cï¿½digo (* para terminar)");
+				System.out.println("Teclee código (* para terminar)");
 				codigo=e.nextLine();
 			}while(codigo.length()!=6);
 			while(!codigo.equals("*")){
 				do {
-					System.out.println("Teclee denominaciï¿½n");
+					System.out.println("Teclee denominación");
 					denominacion=e.nextLine();
 				}while(denominacion.length()>15);
 				do {
@@ -98,20 +98,20 @@ public class EjercicioExamen2{
 				escr.newLine();
 				e.nextLine();
 				do {
-					System.out.println("Teclee cï¿½digo (* para terminar)");
+					System.out.println("Teclee código (* para terminar)");
 					codigo=e.nextLine();			
 				}while(codigo.length()!=6);
 			}
 			escr.close();
 		}catch(IOException ioe) {
-			System.out.println("La ruta indicada no es vï¿½lida.");
+			System.out.println("La ruta indicada no es válida.");
 		}
 	}
 	static void factura() {
 		String codigo=null,denominacion=null,uniVendidas=null,precio=null,tipo=null;
 		try {
 			BufferedReader lee=new BufferedReader(new FileReader(ruta+"articulo.txt"));
-			System.out.println("Cï¿½digo\tDenominaciï¿½n\tPrec. Uni\tTipo\tPrecio\tIVA\tPrecio+IVA");
+			System.out.println("Código\tDenominación\tPrec. Uni\tTipo\tPrecio\tIVA\tPrecio+IVA");
 			codigo=lee.readLine();
 			denominacion=lee.readLine();
 			precio=lee.readLine();
@@ -189,13 +189,13 @@ public class EjercicioExamen2{
 		cargaVArticulos(ar);
 		System.out.println("MODIFICACIONES....");	
 		do {
-			System.out.println("ï¿½Cï¿½digo del artï¿½culo a modificar?");
+			System.out.println("¿Código del artículo a modificar?");
 			codigoBus=e.nextLine();		
 			ia=buscarArticulo(codigoBus, ar);
 			if(ia==ar.length)
-				System.out.println("El artï¿½culo /"+codigoBus+"\" no existe.");
+				System.out.println("El artículo /"+codigoBus+"\" no existe.");
 			else {
-				System.out.println("Cï¿½digo............"+ar[ia].getCodigo()+"\nDenominacion............"+
+				System.out.println("Código............"+ar[ia].getCodigo()+"\nDenominacion............"+
 						ar[ia].getDenominacion()+"\nPrecio............"+ar[ia].getPrecio()+"\nTipo............"+
 						ar[ia].getTipo()+"\nUnidades vendidas............"+ar[ia].getUniVendidas());
 				denomN=ar[ia].getDenominacion();
@@ -211,7 +211,7 @@ public class EjercicioExamen2{
 					switch(cm) {
 					case 1:
 						do {
-							System.out.println("Teclee la nueva denominaciï¿½n.");
+							System.out.println("Teclee la nueva denominación.");
 							denomN=e.nextLine();
 						}while(denomN.length()>15);
 						break;
@@ -243,7 +243,7 @@ public class EjercicioExamen2{
 						break;				
 					}					
 					do {
-						System.out.println("Confirmar modificacionesï¿½? (S/N) ");
+						System.out.println("Confirmar modificaciones¿? (S/N) ");
 						otro=Character.toUpperCase(e.next().charAt(0));
 					}while(otro !='S' && otro!='N');	
 					if(otro=='s') {

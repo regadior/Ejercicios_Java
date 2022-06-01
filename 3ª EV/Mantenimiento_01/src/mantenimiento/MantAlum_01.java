@@ -28,7 +28,7 @@ public class MantAlum_01{
 		return op;
 	}
 	public static void main(String []args) throws IOException{
-		MantAlum_01 ma= new MantAlum_01(); //instancio la propia clase para moverme por los métodos de la propia clase ahorrándome los static
+		MantAlum_01 ma= new MantAlum_01(); //instancio la propia clase para moverme por los métodos de la propia lclase ahorrándome los static
 		//evitando conflictos con los nombres de otras clases ya que especificas qué clase es.
 		String opcion;
 		boolean fin=false;

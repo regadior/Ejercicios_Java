@@ -49,8 +49,10 @@ public class FicheroBinBusquedaNumeros{
 			System.out.println("\n\nLos n�meros grabados en el fichero son: \n");
 			num=entrada.readInt();
 			while(num!=999) {
+				System.out.println("1");
 				System.out.println(num);
 				num=entrada.readInt();
+				System.out.println("2");
 			}
 		}catch(IOException ioe) {
 			System.out.println("El fichero no se ha podido abrir.");

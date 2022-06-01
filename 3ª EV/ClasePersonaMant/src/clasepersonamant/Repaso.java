@@ -8,17 +8,17 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.text.DecimalFormat;
 public class Repaso{
-	static final String ruta="D:\\Ejercicios_Java\\3Âª EV\\textos\\";
+	static final String ruta="C:\\Users\\DA-1.PUESTO222\\Desktop\\ejercicios programación\\textos\\";
 	static int menu(Scanner e) {
 		int op=0;
-		System.out.println("\n\tMENï¿½\n\t====");
+		System.out.println("\n\tMENÚ\n\t====");
 		System.out.println("1.Altas.");
 		System.out.println("2.Listado.");
 		System.out.println("3.Modificaciones.");
 		System.out.println("4.Fin.");
 		do {
 			try {
-				System.out.println("\n\tTeclee opciï¿½n (1-4): ");
+				System.out.println("\n\tTeclee opción (1-4): ");
 				op=e.nextInt();
 			}catch(InputMismatchException ime) {
 				op=Integer.MAX_VALUE;
@@ -32,7 +32,7 @@ public class Repaso{
 		System.out.println("\n\tALTAS\n\t=====");
 		try {
 			BufferedWriter esc= new BufferedWriter(new FileWriter(ruta +"personas2.txt",true));
-			// el true es para aï¿½adir nuevas personas.
+			// el true es para añadir nuevas personas.
 			p= new Persona();
 			do {
 				System.out.println("Teclee un DNI (fin para terminar)");
@@ -51,7 +51,7 @@ public class Repaso{
 				}while(e.nextInt()<0);
 
 				do {
-					System.out.println("Teclee un cï¿½digo postal");
+					System.out.println("Teclee un código postal");
 					p.setCodPos(e.nextInt());
 				}while(p.controlLongitud().length()!=5 || !p.controlProvincia(p.controlLongitud()));
 
@@ -63,7 +63,7 @@ public class Repaso{
 				esc.newLine();
 				esc.write(String.valueOf(p.getCodPos()));
 				esc.newLine();
-				e.nextLine(); //saltar lï¿½nea para vaciar buffer.
+				e.nextLine(); //saltar línea para vaciar buffer.
 
 				p= new Persona();
 				do {
@@ -86,7 +86,7 @@ public class Repaso{
 		Persona p;
 		DecimalFormat df = new DecimalFormat("00000");
 		System.out.println("\t\tLISTADO\n\t\t=======\n");
-		System.out.println("DNI\tNombre\tEdad\tCï¿½d.Postal");
+		System.out.println("DNI\tNombre\tEdad\tCód.Postal");
 		try {
 			BufferedReader lee= new BufferedReader(new FileReader(ruta +"personas2.txt"));
 			p= new Persona();
@@ -168,7 +168,7 @@ public class Repaso{
 		Persona pN= new Persona();
 		do {
 			System.out.println("MODIFICACIONES....");
-			System.out.println("ï¿½DNI de la persona a modificar?");
+			System.out.println("¿DNI de la persona a modificar?");
 			dniBus=e.nextLine();		
 			ip=buscarPersona(dniBus, vp);
 			if(ip==vp.length)
@@ -203,7 +203,7 @@ public class Repaso{
 						break;
 					default:
 						do {
-							System.out.println("Teclee el nuevo cï¿½digo postal");
+							System.out.println("Teclee el nuevo código postal");
 							try {
 								pN.setCodPos(e.nextInt());
 							}catch(NumberFormatException nfe) {
@@ -213,12 +213,12 @@ public class Repaso{
 						break;
 					}
 					do {
-						System.out.println("Modificar otro campoï¿½? (S/N)");
+						System.out.println("Modificar otro campo¿? (S/N)");
 						otro=Character.toUpperCase(e.next().charAt(0));
 					}while(otro !='S' && otro!='N');
 				}while(otro=='s');
 				do {
-					System.out.println("Confirmar modificacionesï¿½? (S/N) ");
+					System.out.println("Confirmar modificaciones¿? (S/N) ");
 					otro=Character.toUpperCase(e.next().charAt(0));
 				}while(otro !='S' && otro!='N');	
 				if(otro=='s') {

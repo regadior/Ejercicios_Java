@@ -2,7 +2,7 @@ package mant_02;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 public class MantArt_01{
-	static final String ruta="D:\\Ejercicios_Java\\3Âª EV\\textos\\";
+	static final String ruta="G:\\Mi unidad\\PROGRAMACIÓN\\EJERCICIOS\\3ª EV\\textos\\";
 	String menu() throws IOException {
 		Teclado t = new Teclado();
 		System.out.println("\n\tMENU\n\t====\n");
@@ -12,7 +12,7 @@ public class MantArt_01{
 		System.out.println("C.- Consultas. ");
 		System.out.println("L.- Listados.");
 		System.out.println("F.- Fin.");
-		System.out.print("\n\n\tTeclee opciï¿½n:  ");
+		System.out.print("\n\n\tTeclee opción:  ");
 		String op = t.leerString();
 		return op;
 	}
@@ -20,10 +20,10 @@ public class MantArt_01{
 		Teclado t = new Teclado();
 		System.out.println("\n\tMENU\n\t====\n");
 		System.out.println("1.- General.");
-		System.out.println("2.- Entre lï¿½mites.");
+		System.out.println("2.- Entre límites.");
 		System.out.println("3.- Pedidos.");
-		System.out.println("4.- Volver al menï¿½ principal. ");
-		System.out.print("\n\n\tTeclee opciï¿½n:  ");
+		System.out.println("4.- Volver al menú principal. ");
+		System.out.print("\n\n\tTeclee opción:  ");
 		int op = t.leerInt();
 		return op;
 	}
@@ -73,7 +73,7 @@ public class MantArt_01{
 		RandomAccessFile fich = new RandomAccessFile(ruta+"articulos.dat","rw");
 		System.out.println("\n\tALTAS\n\t");
 		do {
-			System.out.print("Cï¿½digo (0 = Fin) ");
+			System.out.print("Código (0 = Fin) ");
 			codigo= t.leerInt();
 		}while(codigo==Integer.MIN_VALUE);
 		while(codigo!=0) { // si no quieres salir no tecleas cero.
@@ -83,7 +83,7 @@ public class MantArt_01{
 				System.out.println("\n\tEl registro ya existe.....\n");
 			else {
 				do {
-					System.out.print("Denominaciï¿½n.....");
+					System.out.print("Denominación.....");
 					denominacion=t.leerString();
 				}while(denominacion.length()>20);
 				do {
@@ -92,11 +92,11 @@ public class MantArt_01{
 				}while(stockAct==Double.MIN_VALUE);
 				do {
 					do {
-						System.out.print("Stock mï¿½nimo.....");
+						System.out.print("Stock mínimo.....");
 						stockAct=t.leerDouble();
 					}while(stockMin==Double.MIN_VALUE);
 					do {
-						System.out.print("Stock mï¿½ximo.....");
+						System.out.print("Stock máximo.....");
 						stockMax=t.leerDouble();
 					}while(stockMax==Double.MIN_VALUE);
 				}while(stockMax<stockMin);
@@ -119,7 +119,7 @@ public class MantArt_01{
 				}
 			}				
 			do {
-				System.out.print("Cï¿½digo (0 = Fin) ");
+				System.out.print("Código (0 = Fin) ");
 				codigo= t.leerInt();
 			}while(codigo==Integer.MIN_VALUE);	
 		}
@@ -132,7 +132,7 @@ public class MantArt_01{
 		System.out.println("\n\tCONSULTAS\n\t");
 		RandomAccessFile fich = new RandomAccessFile(ruta+"articulos.dat","r");	
 		do {
-			System.out.print("\nTeclee cï¿½digo del artï¿½culo ");
+			System.out.print("\nTeclee código del artículo ");
 			codBus= t.leerInt();
 		}while(codBus==Integer.MIN_VALUE);
 		fich.seek(codBus * a.tamano());
@@ -140,7 +140,7 @@ public class MantArt_01{
 		if(a.getCodigo()!=0)
 			a.mostrarDatos(2);
 		else
-			System.out.println("\nNo existe ningï¿½n artï¿½culo con el nï¿½mero: "+codBus);
+			System.out.println("\nNo existe ningún artículo con el número: "+codBus);
 		fich.close();
 		System.out.println("\n Teclee <Intro> para continuar.");
 		t.leerSalto();
@@ -153,13 +153,13 @@ public class MantArt_01{
 		RandomAccessFile fich = new RandomAccessFile(ruta+"articulos.dat","rw");
 		System.out.println("\n\tBAJAS\n\t");
 		do {
-			System.out.print("\nTeclee cï¿½digo del artï¿½culo: ");
+			System.out.print("\nTeclee código del artículo: ");
 			codBus= t.leerInt();
 		}while(codBus==Integer.MIN_VALUE);
 		fich.seek(codBus *a.tamano());
 		a.leerDeArchivo(fich);
 		if(a.getCodigo()==0)
-			System.out.println("\n\tEl artï¿½culo con el cï¿½digo "+codBus+" no existe.....\n");
+			System.out.println("\n\tEl artículo con el código "+codBus+" no existe.....\n");
 		else {
 			a.mostrarDatos(2);
 			do {
@@ -189,13 +189,13 @@ public class MantArt_01{
 		do {
 			System.out.println("\n\tMODIFICACIONES\n\t");
 			do {
-				System.out.print("\nTeclee nï¿½mero del artï¿½culo: ");
+				System.out.print("\nTeclee número del artículo: ");
 				codBus= t.leerInt();
 			}while(codBus==Integer.MIN_VALUE);
 			fich.seek(codBus * a.tamano());
 			a.leerDeArchivo(fich);
 			if(a.getCodigo()==0)
-				System.out.println("\n\tEl artï¿½culo con el nï¿½mero "+codBus+" no existe.....\n");
+				System.out.println("\n\tEl artículo con el número "+codBus+" no existe.....\n");
 			else {
 				denomN=a.getDenominacion();
 				stockActN=a.getStockAct();
@@ -211,7 +211,7 @@ public class MantArt_01{
 					switch(cm){
 					case 1:
 						do {
-							System.out.println("Teclee la nueva denominaciï¿½n....");
+							System.out.println("Teclee la nueva denominación....");
 							denomN=t.leerString();
 						}while (denomN.length()>20);
 						break;
@@ -224,7 +224,7 @@ public class MantArt_01{
 					case 3:
 						do {
 							do {
-								System.out.print("Teclee el nuevo stock mï¿½nimo.....");
+								System.out.print("Teclee el nuevo stock mínimo.....");
 								stockMinN=t.leerDouble();
 							}while(stockMinN==Double.MIN_VALUE || stockMinN>a.getStockMax());
 						}while(stockMinN>stockMaxN);
@@ -232,7 +232,7 @@ public class MantArt_01{
 					case 4:
 						do {
 							do {
-								System.out.print("Teclee el nuevo stock mï¿½ximo.....");
+								System.out.print("Teclee el nuevo stock máximo.....");
 								stockMaxN=t.leerDouble();
 							}while(stockMaxN==Double.MIN_VALUE ||  stockMaxN<a.getStockMin());
 							break;
@@ -258,7 +258,7 @@ public class MantArt_01{
 				}
 			}
 			do {
-				System.out.println("Modificar otro artï¿½culo (s/n)");
+				System.out.println("Modificar otro artículo (s/n)");
 				otro=Character.toLowerCase(t.leerChar());
 			}while(otro!='s' && otro!='n');
 		}while(otro=='s');
@@ -270,9 +270,9 @@ public class MantArt_01{
 		boolean fin =false;
 		final int LINEAS=4;
 		//valor 5 de nombre LINEAS por convenio es mayuscula.
-		int cp=0,cl=LINEAS+1 ; //ca cont aprobados cp cont pï¿½ginas cs cont suspensos y cl cont lï¿½neas vale 6 para saltar
+		int cp=0,cl=LINEAS+1 ; //ca cont aprobados cp cont páginas cs cont suspensos y cl cont líneas vale 6 para saltar
 		RandomAccessFile fich = new RandomAccessFile(ruta+"articulos.dat","r");
-		System.out.println("Posiciï¿½n de puntero inicial..........:"+fich.getFilePointer());
+		System.out.println("Posición de puntero inicial..........:"+fich.getFilePointer());
 		do {
 			fin=a.leerDeArchivo(fich);
 		}while(a.getCodigo()==0 &&!fin);
@@ -283,7 +283,7 @@ public class MantArt_01{
 					cl++;
 				}
 				fin=a.leerDeArchivo(fich);
-				System.out.println("Posiciï¿½n de puntero inicial..........:"+fich.getFilePointer());
+				System.out.println("Posición de puntero inicial..........:"+fich.getFilePointer());
 			}
 			if(cl==LINEAS) {
 				System.out.println("\n\t Pulse <Intro> para continuar");
@@ -291,7 +291,7 @@ public class MantArt_01{
 			}
 			if(!fin) {
 				System.out.println("\t\tLISTADO\t\tPag.: "+ ++cp+"\n\t\t=======\n");
-				System.out.println("Cï¿½digo\tDenominaciï¿½n\tStock actual\tStock mï¿½nimo.\tStock mï¿½ximo\t\tApto");
+				System.out.println("Código\tDenominación\tStock actual\tStock mínimo.\tStock máximo\t\tApto");
 				System.out.println("-----------------------------------------------------------------------");
 				cl=0;
 			}			
@@ -307,14 +307,14 @@ public class MantArt_01{
 		boolean fin =false;
 		final int LINEAS= 4;
 		//valor 5 de nombre LINEAS por convenio es mayuscula.
-		int cp=0,cl=LINEAS+1,li=0,ls=0; //ca cont aprobados cp cont pï¿½ginas cs cont suspensos y cl cont lï¿½neas vale 6 para saltar
+		int cp=0,cl=LINEAS+1,li=0,ls=0; //ca cont aprobados cp cont páginas cs cont suspensos y cl cont líneas vale 6 para saltar
 		do {
 			do {
-				System.out.println("Teclee lï¿½mite inferior.....: ");
+				System.out.println("Teclee límite inferior.....: ");
 				li=t.leerInt();
 			}while(li==Integer.MIN_VALUE);
 			do {
-				System.out.println("Teclee lï¿½mite superior.....: ");
+				System.out.println("Teclee límite superior.....: ");
 				ls=t.leerInt();
 			}while(ls==Integer.MIN_VALUE);
 		}while (li>ls);
@@ -329,7 +329,7 @@ public class MantArt_01{
 				cl++;
 				do {
 					fin=a.leerDeArchivo(fich);
-				}while(a.getCodigo()==0 &&!fin); //sigue leyendo mientras el cï¿½digo no sea 0 o fin, se sale del bucle en el siguiente registro que exista
+				}while(a.getCodigo()==0 &&!fin); //sigue leyendo mientras el código no sea 0 o fin, se sale del bucle en el siguiente registro que exista
 				if(a.getCodigo()>ls) {
 					fin=true;
 				}
@@ -339,8 +339,8 @@ public class MantArt_01{
 				t.leerSalto();
 			}
 			if(!fin) {
-				System.out.println("\t\tLISTADO ENTRE Lï¿½MITES\t\tPag.: "+ ++cp+"\n\t\t======================\n");
-				System.out.println("Cï¿½digo\tDenominaciï¿½n\tStock actual\tStock mï¿½nimo.\tStock mï¿½ximo\t\tApto");
+				System.out.println("\t\tLISTADO ENTRE LÍMITES\t\tPag.: "+ ++cp+"\n\t\t======================\n");
+				System.out.println("Código\tDenominación\tStock actual\tStock mínimo.\tStock máximo\t\tApto");
 				System.out.println("-----------------------------------------------------------------------");
 				cl=0;
 			}	
@@ -377,7 +377,7 @@ public class MantArt_01{
 				}while(a.getCodigo()==0 &&!fin);
 				if(cl==LINEAS) {
 					sumsigue+=tp;
-					System.out.println("Total pï¿½gina..............: "+tp);
+					System.out.println("Total página..............: "+tp);
 					System.out.println("Total final...............: "+sumsigue);
 					tp=0;
 					System.out.println("Teclee <Intro> para continuar....");
@@ -386,13 +386,13 @@ public class MantArt_01{
 
 				if(!fin) {
 					System.out.println("\t\tLISTADO PEDIDOS\t\tPag.: "+ ++cp+"\n\t\t=============\n");
-					System.out.println("Cï¿½digo\tDenominaciï¿½n\tUnidades Pedidas\tPrecio Unidad\tValor pedido");
+					System.out.println("Código\tDenominación\tUnidades Pedidas\tPrecio Unidad\tValor pedido");
 					System.out.println("-------------------------------------------------------------------");
 					cl=0;
 				}	
 			}
 		}while(!fin);
-		System.out.println("Total pï¿½gina..............: "+tp);
+		System.out.println("Total página..............: "+tp);
 		System.out.println("Total final...............: "+sumsigue);
 		fich.close();
 		System.out.println("\n\n\tFIN DEL LISTADO \n");

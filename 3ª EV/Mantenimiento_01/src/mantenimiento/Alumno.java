@@ -14,9 +14,9 @@ public class Alumno{
 	Alumno(int numero,String nombre, float nota1, float nota2, char apto){
 		this.numero=numero;
 		this.nombre=nombre;
-		this.numero=numero;
-		this.numero=numero;
-		this.numero=numero;
+		this.nota1=nota1;
+		this.nota2=nota2;
+		this.apto=apto;
 	}
 	Alumno(){}
 
